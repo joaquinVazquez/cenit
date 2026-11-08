@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cénit Mental - Reflexión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="container">
+        <article class="article-detail">
+            <h1 id="title"></h1>
+            <img id="image" src="" alt="" class="detail-img">
+            <p id="quote" class="quote"></p>
+            <p id="author" class="author"></p>
+            <hr>
+            <div id="full-text" class="full-text"></div>
+            <a href="index.html" class="btn-back">← Volver al inicio</a>
+        </article>
+    </main>
+
+    <script>
+        // Base de datos local de tus reflexiones
+        const reflexiones = {
+            miedo: {
+                titulo: "Miedo",
+                imagen: "./images/24_libertad.jfif",
+                cita: '"Es toda una experiencia vivir con miedo, ¿verdad? Eso es lo que significa ser un esclavo"',
+                autor: "Roy Batty",
+                texto: "Reconocer que el miedo a menudo dicta las decisiones y crea una sensación de estancamiento a pesar de los esfuerzos constantes. El progreso real requiere auditar rutinas, identificar puntos ciegos, ajustar métodos y permitir un descanso suficiente en lugar de solo aumentar el volumen de esfuerzo. Tomar pequeñas acciones deliberadas sin buscar la aprobación externa para construir la autonomía paso a paso."
+            },
+
+            renovacion: {
+                titulo: "Impermanencia y renovación",
+                imagen: "./images/23_amanecer.jfif",
+                cita: "No importa cuán oscura sea la noche, el día siempre vuelve a aparecer y nuestro viaje comienza una vez más.",
+                autor: "Lulu",
+                texto: `
+                    <p>La <strong>noche</strong> representa las pruebas difíciles, la pérdida y la incertidumbre; el <strong>día</strong> simboliza la esperanza, el renacer y volver a empezar.</p>
+                    
+                    <p>La adversidad no es un final, sino un <em>preludio</em> que prepara el camino para la renovación. El estancamiento y los momentos difíciles son estrictamente temporales.</p>
+                    
+                    <p>Cada nuevo amanecer ofrece una <strong>oportunidad</strong> para aprender de los errores, reconstruir la fuerza interior y descubrir nuevos caminos a seguir.</p>
+                `}
+        };
+
+        // Obtener el ID de la URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        // Renderizar el contenido si existe el id
+        if (id && reflexiones[id]) {
+            const data = reflexiones[id];
+            document.getElementById('title').textContent = data.titulo;
+            document.getElementById('image').src = data.imagen;
+            document.getElementById('quote').textContent = data.cita;
+            document.getElementById('author').textContent = data.autor;
+            document.getElementById('full-text').innerHTML = data.texto;
+        } else {
+            document.getElementById('title').textContent = "Reflexión no encontrada";
+        }
+    </script>
+</body>
+</html>

@@ -201,3 +201,64 @@ footer {
     color: #34d399;
     margin-top: 0.5rem;
 }
+
+/* ==========================================
+   SECCIÓN: POST DEL DÍA (FEATURED)
+   ========================================== */
+.featured-post {
+    max-width: 1400px;
+    margin: 2rem auto 0 auto;
+    padding: 0 3rem;
+}
+
+.badge {
+    display: inline-block;
+    background-color: #10b981;
+    color: #0a0a0d;
+    font-weight: bold;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+}
+
+.featured-card {
+    background-color: #111827;
+    border: 1px solid #10b981;
+    border-radius: 12px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+}
+
+@media (min-width: 768px) {
+    .featured-card {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        padding: 2rem;
+    }
+}
+
+.featured-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.featured-excerpt {
+    font-style: italic;
+    color: #34d399;
+    margin: 0.75rem 0;
+    font-size: 1.1rem;
+}
+
+.featured-summary {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}

@@ -14,47 +14,11 @@
         </div>
     </header>
 
-    <!-- 2. POST DEL DÍA (Eternos Aprendices) -->
-    <section class="featured-post">
-        <span class="badge">Reflexión del Día</span>
-        <article class="featured-card">
-            <div class="featured-image">
-                <!-- Sube la imagen a Postimages y reemplaza este enlace -->
-                <img src="https://i.postimg.cc/gkcPTHcY/25-eternos.jpg" alt="Eternos aprendices, la plenitud en el presente">
-            </div>
-            <div class="featured-content">
-                <h2>Eternos aprendices: la plenitud en el presente</h2>
-                <p class="featured-excerpt">
-                    "No importa cuánto crezcamos o cuánto envejezcamos, siempre estamos tropezando, haciéndonos preguntas eternamente jóvenes."
-                </p>
-                <p class="featured-summary">
-                    Una mirada íntima a cómo tropezar no es un fracaso, sino la señal de que seguimos buscando. La plenitud no se halla en un punto final, sino en la curiosidad que nos mantiene vivos y en constante evolución en este preciso instante.
-                </p>
-                <a href="detalle.html?id=eternosaprendices" class="btn-more">Leer reflexión completa</a>
-            </div>
-        </article>
-    </section>
+    <!-- Contenedor del Post del Día (Se llena con JS) -->
+    <section class="featured-post" id="featured-container"></section>
 
-    <main class="grid-container">
-        <article class="card">
-            <h2>Miedo</h2>
-            <img src="https://i.postimg.cc/MTGNXj8z/24-libertad.jpg" alt="">
-            <p>"Es toda una experiencia vivir con miedo, ¿verdad? Eso es lo que significa ser un esclavo"</p>
-            <p class="author">- Roy Batty</p>
-
-            <a href="detalle.html?id=miedo" class="btn-read-more">Leer más</a>
-        </article>
-        <article class="card">
-            <h2>Impermanencia y renovación</h2>
-            <img src="https://i.postimg.cc/76LdbTyP/23-amanecer.jpg" alt="">
-            <p>No importa cuán oscura sea la noche, el día siempre vuelve a aparecer y nuestro viaje comienza una vez más.</p>
-            <p class="author">- Lulu</p>
-
-            <a href="detalle.html?id=renovacion" class="btn-read-more">Leer más</a>
-        </article>
-
-        
-    </main>
+    <!-- Contenedor del Grid de Entradas Anteriores (Se llena con JS) -->
+    <main class="grid-container" id="grid-container"></main>
 
     <footer>
         <div class="footer-logo">
@@ -63,5 +27,9 @@
         <p>&copy; 2026 Cénit Mental. Reflexiones personales inspiradas en literatura y filosofías de vida.</p>
         <p class="credits">Desarrollado por Joaquín Vázquez</p>
     </footer>
+
+    <!-- Carga de datos y script de automatización -->
+    <script src="datos.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

@@ -1,6 +1,23 @@
 const reflexiones = [
     
     {
+        id: "autenticidad",
+        titulo: "Mascara",
+        imagen: "https://i.postimg.cc/x1BTFpcn/28-mascara.jpg",
+        cita: "Si nadie te odia, estás haciendo algo mal.",
+        autor: "Gregory House",
+        texto: `
+            <p>El mundo está lleno de opiniones y juicios, y no todos estarán de acuerdo contigo. Cuando priorizas agradar a todos, te conviertes en <strong>esclavo de expectativas ajenas</strong> y sacrificas tu propia autenticidad.</p> 
+            
+            <p>El verdadero valor de la vida radica en ser fiel a ti mismo, tomar decisiones que reflejen tus principios y no temer al desacuerdo. Enfrentar el rechazo o la desaprobación suele ser la señal de que estás desafiando el <em>status quo</em> y construyendo tu propia verdad en lugar de seguir la corriente.</p>
+
+            <p>Sin embargo, la autenticidad enfrenta su prueba más real dentro de estructuras jerárquicas o cuando dependemos de figuras con poder para nuestra estabilidad y proyectos. En la vida real, sostener nuestros principios frente al poder exige inteligencia emocional, estrategia y <strong>autonomía interior</strong>:</p>
+
+            <p><strong>Al final, la congruencia tiene un costo, pero pagar el precio de ser auténtico siempre será preferible al desgaste de vivir bajo una máscara.</strong></p>
+        `
+    },
+
+    {
     id: "lamento",
     titulo: "Lamento",
     imagen: "https://i.postimg.cc/bNqLSt2g/27-lamento.jpg",

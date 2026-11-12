@@ -37,7 +37,7 @@ const reflexiones = [
     
     {
         id: "eternosaprendices",
-        titulo: "Eternos aprendices: la plenitud en el presente",
+        titulo: "Eternos aprendices",
         imagen: "https://i.postimg.cc/gkcPTHcY/25-eternos.jpg", 
         cita: "No importa cuánto crezcamos o cuánto envejezcamos, siempre estamos tropezando, haciéndonos preguntas eternamente jóvenes.",
         autor: "Alex Karev",

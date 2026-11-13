@@ -4,10 +4,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (typeof reflexiones === "undefined" || !reflexiones.length) return;
 
-    // 1. Post del Día (Primer elemento del arreglo)
-    const delDia = reflexiones[0];
+    // 1. Obtener la fecha local actual en formato "YYYY-MM-DD"
+    const ahora = new Date();
+    const anio = ahora.getFullYear();
+    const mes = String(ahora.getMonth() + 1).padStart(2, "0");
+    const dia = String(ahora.getDate()).padStart(2, "0");
+    const fechaHoy = `${anio}-${mes}-${dia}`;
+
+    // 2. Filtrar publicaciones disponibles hasta hoy y ordenar de la más reciente a la más antigua
+    const publicadas = reflexiones
+        .filter(item => item.fecha && item.fecha <= fechaHoy)
+        .sort((a, b) => b.fecha.localeCompare(a.fecha));
+
+    if (!publicadas.length) return;
+
+    // 3. Post del Día (La publicación más reciente disponible hoy)
+    const delDia = publicadas[0];
     
-    // Extraer el texto del primer párrafo para el resumen en el post destacado
     const matchParrafo = delDia.texto.match(/<p>(.*?)<\/p>/s);
     const resumenAuto = matchParrafo ? matchParrafo[1].replace(/<\/?[^>]+(>|$)/g, "").trim() : "";
 
@@ -26,8 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
         </article>
     `;
 
-    // 2. Grid de entradas anteriores (de la posición 1 en adelante)
-    const historial = reflexiones.slice(1);
+    // 4. Grid de entradas anteriores (de la posición 1 en adelante)
+    const historial = publicadas.slice(1);
     gridContainer.innerHTML = historial.map(item => `
         <article class="card">
             <h2>${item.titulo}</h2>

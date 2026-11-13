@@ -1,7 +1,31 @@
 const reflexiones = [
     
     {
+        id: "oportunidades",
+        fecha: "2026-11-14",
+        titulo: "Bifurcación",
+        imagen: "https://i.postimg.cc/g0NmD8sp/29-bifurcacion.jpg",
+        cita: "Todas las oportunidades marcan el curso de nuestra vida. Incluso las que dejamos ir.",
+        autor: "Benjamin Button",
+        texto: `
+            <p>Solemos medir nuestra historia únicamente por las puertas que cruzamos, pero aquello a lo que renunciamos tiene un peso igual de determinante en nuestra evolución. Cada elección implica descartar múltiples caminos, y en esa renuncia inevitable surge la duda sobre lo que nos convenía, olvidando que <strong>no existen caminos erróneos</strong>, sino experiencias necesarias para revelar quiénes somos.</p>
+
+            <p>Cada vida está hecha de momentos y decisiones; incluso las oportunidades que no aprovechamos nos forman y nos guían. Juzgar el pasado desde la nostalgia o el arrepentimiento es una ilusión; muchas veces, lo que percibimos como una oportunidad perdida es el filtro que nos protegió y nos condujo exactamente a donde debíamos estar. Nuestro valor no reside en acumular aciertos, sino en integrar cada vivencia.</p>
+
+            <p>En la vida es natural que algunas oportunidades pasen de largo, pero eso no define nuestro destino; lo que realmente importa es cómo reaccionamos ante ellas, cómo las procesamos y qué aprendemos. Comprender el propósito de nuestro camino implica:</p>
+            <ul>
+                <li><strong>Aceptar la pérdida como lección y guía:</strong> Dejar de lamentarse por lo que no se hizo y entender que los caminos no transitados enseñan a valorar lo que tenemos y preparan para lo que viene.</li>
+                <li><strong>Vivir sin el peso del 'hubiera':</strong> Reconocer que cada decisión tomada fue el resultado de nuestra consciencia en ese momento, sirviendo como aprendizaje.</li>
+                <li><strong>Abrazar la totalidad del viaje:</strong> Valorar tanto las oportunidades presentes como las que se fueron como partes indivisibles de nuestra esencia.</li>
+            </ul>
+
+            <p><strong>Al final, hasta el paso que no dimos tiene un propósito: acércate a lo que viene con la certeza de que todo te está preparando para tu verdadera esencia.</strong></p>
+        `
+    },
+    
+    {
         id: "autenticidad",
+        fecha: "2026-11-12",
         titulo: "Mascara",
         imagen: "https://i.postimg.cc/x1BTFpcn/28-mascara.jpg",
         cita: "Si nadie te odia, estás haciendo algo mal.",
@@ -19,6 +43,7 @@ const reflexiones = [
 
     {
     id: "lamento",
+    fecha: "2026-11-11",
     titulo: "Lamento",
     imagen: "https://i.postimg.cc/bNqLSt2g/27-lamento.jpg",
     cita: "Al final, solo lamentamos lo que no hemos hecho.",
@@ -34,6 +59,7 @@ const reflexiones = [
     {
         id: "elcomoyelcuando",
         titulo: "El cómo y el cuándo",
+        fecha: "2026-11-10",
         imagen: "https://i.postimg.cc/3wqLDzJc/26-como-cuando.jpg", // Reemplaza con la URL de tu imagen subida
         cita: "Todos morimos. Lo que importa es el cómo y el cuándo.",
         autor: "William Wallace",
@@ -54,7 +80,8 @@ const reflexiones = [
     
     {
         id: "eternosaprendices",
-        titulo: "Eternos aprendices",
+        fecha: "2026-11-09",
+        titulo: "Aprendices",
         imagen: "https://i.postimg.cc/gkcPTHcY/25-eternos.jpg", 
         cita: "No importa cuánto crezcamos o cuánto envejezcamos, siempre estamos tropezando, haciéndonos preguntas eternamente jóvenes.",
         autor: "Alex Karev",
@@ -70,6 +97,7 @@ const reflexiones = [
     },
     {
         id: "miedo",
+        fecha: "2026-11-08",
         titulo: "Miedo",
         imagen: "https://i.postimg.cc/MTGNXj8z/24-libertad.jpg",
         cita: "Es toda una experiencia vivir con miedo, ¿verdad? Eso es lo que significa ser un esclavo",
@@ -80,7 +108,8 @@ const reflexiones = [
     },
     {
         id: "renovacion",
-        titulo: "Impermanencia y renovación",
+        fecha: "2026-11-0",
+        titulo: "Renovación",
         imagen: "https://i.postimg.cc/76LdbTyP/23-amanecer.jpg",
         cita: "No importa cuán oscura sea la noche, el día siempre vuelve a aparecer y nuestro viaje comienza una vez más.",
         autor: "Lulu",

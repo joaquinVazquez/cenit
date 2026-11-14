@@ -1,6 +1,29 @@
 const reflexiones = [
     
     {
+    id: "pesadillas",
+    fecha: "2026-11-14",
+    titulo: "Fortaleza",
+    imagen: "https://i.postimg.cc/VNbgg23L/30-fortaleza.jpg",
+    cita: "Vi la muerte en mis sueños muchas veces. Pero no he muerto. Fui mejor que mis sueños, mejor que mis pesadillas.",
+    autor: "William Bishop",
+    texto: `
+        <p>La vida está llena de desafíos, miedos y momentos difíciles, pero son esos momentos los que nos <strong>forjan</strong> y nos permiten crecer. Enfrentar nuestras peores pesadillas no es fácil, pero solo a través de este coraje podemos descubrir nuestra verdadera fuerza.</p>
+
+        <p>No te rindas ante el miedo, porque en la lucha te revelarás a ti mismo como más grande de lo que alguna vez imaginaste. La vida no se trata de evitar el dolor, sino de enfrentarlo con <strong>valentía</strong>, superarlo y salir más fuerte.</p>
+
+        <p>Comprender esta mentalidad de resiliencia implica:</p>
+        <ul>
+            <li><strong>Confrontar en lugar de eludir:</strong> Al superar los obstáculos descubrimos nuestras fortalezas ocultas.</li>
+            <li><strong>Adoptar una mirada de oportunidad:</strong> Ver las dificultades como escenarios para aprender y probarnos que somos más capaces de lo que creemos.</li>
+            <li><strong>Destapar nuestro guerrero interno:</strong> Reconocer que la adversidad es el crisol que templa nuestro espíritu.</li>
+        </ul>
+
+        <p><strong>Al final, si no te dejas vencer, habrás demostrado que eres superior a cualquier tormenta que intente detener tu vuelo.</strong></p>
+    `
+    },
+    
+    {   
         id: "oportunidades",
         fecha: "2026-11-13",
         titulo: "Bifurcación",

@@ -4,28 +4,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (typeof reflexiones === "undefined" || !reflexiones.length) return;
 
-    // 1. Obtener la fecha local actual en formato "YYYY-MM-DD"
+    // 1. Obtener fecha local actual "YYYY-MM-DD"
     const ahora = new Date();
     const anio = ahora.getFullYear();
     const mes = String(ahora.getMonth() + 1).padStart(2, "0");
     const dia = String(ahora.getDate()).padStart(2, "0");
     const fechaHoy = `${anio}-${mes}-${dia}`;
 
-    // 2. Filtrar publicaciones disponibles hasta hoy y ordenar de la más reciente a la más antigua
+    // 2. Filtrar y ordenar
     const publicadas = reflexiones
         .filter(item => item.fecha && item.fecha <= fechaHoy)
         .sort((a, b) => b.fecha.localeCompare(a.fecha));
 
     if (!publicadas.length) return;
 
-    // 3. Post del Día (La publicación más reciente disponible hoy)
+    // 3. Post Destacado + Badge dinámico
     const delDia = publicadas[0];
-    
+    const esDeHoy = delDia.fecha === fechaHoy;
+    const textoBadge = esDeHoy ? "🟢 PUBLICADO HOY" : "Reflexión del Día";
+    const claseBadge = esDeHoy ? "badge is-today" : "badge";
+
     const matchParrafo = delDia.texto.match(/<p>(.*?)<\/p>/s);
     const resumenAuto = matchParrafo ? matchParrafo[1].replace(/<\/?[^>]+(>|$)/g, "").trim() : "";
 
     featuredContainer.innerHTML = `
-        <span class="badge">Reflexión del Día</span>
+        <span class="${claseBadge}">${textoBadge}</span>
         <article class="featured-card">
             <div class="featured-image">
                 <img src="${delDia.imagen}" alt="${delDia.titulo}">
@@ -39,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </article>
     `;
 
-    // 4. Grid de entradas anteriores (de la posición 1 en adelante)
+    // 4. Grid historial atemporal (sin fechas visibles)
     const historial = publicadas.slice(1);
     gridContainer.innerHTML = historial.map(item => `
         <article class="card">

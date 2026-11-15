@@ -1,6 +1,24 @@
 const reflexiones = [
     
     {
+        id: "juventud-conocimiento",
+        fecha: "2026-11-15",
+        titulo: "Conocimiento",
+        imagen: "https://i.postimg.cc/nLXsY8SP/31-conocimiento.jpg",
+        cita: "Podemos estudiar toda la vida, pero ser jóvenes solo por un tiempo.",
+        autor: "Charlie Eppes",
+        texto: `
+            <p>La sabiduría no solo se acumula, se vive. A menudo caemos en el error de convertir la preparación en una jaula que nos impide experimentar, olvidando que <strong>la juventud es una etapa finita y especial</strong>.</p>
+
+            <p>Aunque el conocimiento es infinito, hay momentos y vivencias que tienen fecha de caducidad. Dedicar tiempo a viajar, probar cosas nuevas, forjar amistades duraderas o simplemente disfrutar del presente no es una distracción del camino, sino parte esencial de nuestra evolución.</p>
+
+            <p>El verdadero desafío radica en encontrar un equilibrio donde el esfuerzo por superarte y aprender no te cueste la vida misma. Reconocer tu propio ritmo y dedicar el esfuerzo necesario es valioso, pero nunca a costa de perderte el viaje.</p>
+
+            <p><strong>Al final, la preparación más valiosa es aquella que te permite llegar a la madurez no solo con la mente llena, sino con el alma cargada de recuerdos inolvidables.</strong></p>
+        `
+    },
+
+    {
     id: "pesadillas",
     fecha: "2026-11-14",
     titulo: "Fortaleza",

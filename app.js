@@ -2,6 +2,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const featuredContainer = document.getElementById("featured-container");
     const gridContainer = document.getElementById("grid-container");
     const inputBuscador = document.getElementById("buscador");
+    const btnLimpiar = document.getElementById("btn-limpiar");
+    const contadorResultados = document.getElementById("contador-resultados");
 
     if (typeof reflexiones === "undefined" || !reflexiones.length) return;
 
@@ -44,9 +46,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Función principal de renderizado (Vista normal vs. Vista búsqueda)
     function renderizarVista(lista, esBusqueda = false) {
         if (!esBusqueda) {
-            if (featuredContainer) {
-                featuredContainer.style.display = "block";
+            if (featuredContainer) featuredContainer.style.display = "block";
+            if (contadorResultados) contadorResultados.hidden = true;
 
+            if (featuredContainer) {
                 const delDia = lista[0];
                 const esDeHoy = delDia.fecha === fechaHoy;
                 const textoBadge = esDeHoy ? "🟢 PUBLICADO HOY" : "Reflexión del Día";
@@ -76,8 +79,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 gridContainer.innerHTML = historial.map(crearTarjetaHTML).join("");
             }
         } else {
-            if (featuredContainer) {
-                featuredContainer.style.display = "none";
+            if (featuredContainer) featuredContainer.style.display = "none";
+
+            if (contadorResultados) {
+                contadorResultados.hidden = false;
+                const etiqueta = lista.length === 1 ? "reflexión encontrada" : "reflexiones encontradas";
+                contadorResultados.innerHTML = `Mostrando <span>${lista.length}</span> ${etiqueta}`;
             }
 
             if (gridContainer) {
@@ -95,13 +102,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Renderizado inicial al cargar la página
+    // Función para reiniciar la búsqueda por completo
+    function resetearBusqueda() {
+        if (!inputBuscador) return;
+        inputBuscador.value = "";
+        if (btnLimpiar) btnLimpiar.hidden = true;
+        renderizarVista(publicadas, false);
+        inputBuscador.focus();
+    }
+
+    // Renderizado inicial
     renderizarVista(publicadas, false);
 
-    // 4. Evento del buscador en tiempo real (con prioridad por coincidencia en el título)
+    // 4. Eventos del buscador en tiempo real
     if (inputBuscador) {
         inputBuscador.addEventListener("input", (e) => {
-            const termino = limpiarTexto(e.target.value.trim());
+            const valorCrudo = e.target.value;
+            const termino = limpiarTexto(valorCrudo.trim());
+
+            if (btnLimpiar) {
+                btnLimpiar.hidden = valorCrudo.length === 0;
+            }
 
             if (termino === "") {
                 renderizarVista(publicadas, false);
@@ -133,5 +154,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
             renderizarVista(resultados, true);
         });
+
+        // Atajo de teclado: presionar Escape limpia la búsqueda
+        inputBuscador.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && inputBuscador.value !== "") {
+                resetearBusqueda();
+            }
+        });
+    }
+
+    if (btnLimpiar) {
+        btnLimpiar.addEventListener("click", resetearBusqueda);
     }
 });

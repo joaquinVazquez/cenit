@@ -1,6 +1,22 @@
 const reflexiones = [
     
     {
+        id: "con-cada-combate-mas-fuerte",
+        fecha: "2026-11-16",
+        titulo: "Lucha",
+        imagen: "https://i.postimg.cc/d0BKVgHs/32-lucha.jpg",
+        cita: "Con cada combate te haces más fuerte.",
+        autor: "James J. Braddock",
+        texto: `
+            <p>Cada desafío en la vida es una oportunidad silenciosa para crecer. A menudo miramos las crisis, los fracasos y las etapas de incertidumbre como golpes que intentan detenernos, sin advertir que <strong>son precisamente el entrenamiento que moldea nuestro carácter</strong>. La verdadera fortaleza no nace en la comodidad, sino en la determinación de volver a levantarse tras caer.</p>
+
+            <p>En nuestra vida cotidiana, las batallas que libramos —ya sean positivas o negativas— siempre dejan sabiduría y aprendizaje. Aunque a veces quede el temor, el desánimo o la incertidumbre de volver a intentarlo, superar ese miedo transforma cada cicatriz en una armadura invisible.</p>
+
+            <p><strong>Al enfrentar y superar cada desafío, desarrollamos habilidades, paciencia, confianza y resistencia: cualidades esenciales que nos preparan para manejar futuros problemas con mayor eficacia y sabiduría.</strong></p>
+        `
+    },
+
+    {
         id: "juventud-conocimiento",
         fecha: "2026-11-15",
         titulo: "Conocimiento",
@@ -102,7 +118,7 @@ const reflexiones = [
     },
     {
         id: "elcomoyelcuando",
-        titulo: "El cómo y el cuándo",
+        titulo: "Momentos",
         fecha: "2026-11-10",
         imagen: "https://i.postimg.cc/3wqLDzJc/26-como-cuando.jpg", // Reemplaza con la URL de tu imagen subida
         cita: "Todos morimos. Lo que importa es el cómo y el cuándo.",

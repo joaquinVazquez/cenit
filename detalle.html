@@ -7,9 +7,17 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Barra de progreso de lectura fija arriba -->
+    <div class="progress-container">
+        <div id="progress-indicator" class="progress-indicator"></div>
+    </div>
+
     <main class="container">
         <article class="article-detail">
             <h1 id="title"></h1>
+            <div class="article-meta">
+                <span id="reading-time" class="reading-time" hidden></span>
+            </div>
             <img id="image" src="" alt="" class="detail-img">
             <p id="quote" class="quote"></p>
             <p id="author" class="author"></p>
@@ -22,7 +30,7 @@
     <!-- 1. Importamos tu fuente única de datos -->
     <script src="datos.js"></script>
 
-    <!-- 2. Buscamos la reflexión dinámicamente en el arreglo -->
+    <!-- 2. Buscamos la reflexión dinámicamente y activamos progreso + tiempo -->
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const params = new URLSearchParams(window.location.search);
@@ -32,6 +40,10 @@
             const data = typeof reflexiones !== "undefined" 
                 ? reflexiones.find(item => item.id === id) 
                 : null;
+
+            const fullTextEl = document.getElementById('full-text');
+            const readingTimeEl = document.getElementById('reading-time');
+            const progressIndicator = document.getElementById('progress-indicator');
 
             if (data) {
                 document.title = `Cénit Mental - ${data.titulo}`;
@@ -43,10 +55,34 @@
                 
                 document.getElementById('quote').textContent = `"${data.cita}"`;
                 document.getElementById('author').textContent = data.autor || "";
-                document.getElementById('full-text').innerHTML = data.texto;
+                fullTextEl.innerHTML = data.texto;
+
+                // Cálculo de tiempo estimado de lectura (200 palabras/min)
+                const textoPlano = fullTextEl.innerText || "";
+                const totalPalabras = textoPlano.trim().split(/\s+/).filter(Boolean).length;
+                if (totalPalabras > 0 && readingTimeEl) {
+                    const minutos = Math.ceil(totalPalabras / 200);
+                    readingTimeEl.textContent = `${minutos} min de lectura`;
+                    readingTimeEl.hidden = false;
+                }
             } else {
                 document.getElementById('title').textContent = "Reflexión no encontrada";
                 document.getElementById('image').style.display = "none";
+            }
+
+            // Barra de progreso sincronizada con el scroll
+            if (progressIndicator) {
+                window.addEventListener("scroll", () => {
+                    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    
+                    if (scrollHeight > 0) {
+                        const porcentaje = Math.min(100, Math.max(0, (scrollTop / scrollHeight) * 100));
+                        progressIndicator.style.width = `${porcentaje}%`;
+                    } else {
+                        progressIndicator.style.width = "100%";
+                    }
+                }, { passive: true });
             }
         });
     </script>

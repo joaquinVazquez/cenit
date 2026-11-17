@@ -1,6 +1,28 @@
 const reflexiones = [
     
     {
+        id: "hacer-nuestro-mejor-esfuerzo",
+        fecha: "2026-11-17",
+        titulo: "Voluntad",
+        imagen: "https://i.postimg.cc/tCdTrTqS/33-voluntad.jpg",
+        cita: "No se trata de cambiar el mundo, se trata de hacer nuestro mejor esfuerzo antes de partir de este mundo, tal y como es. Respetar la voluntad de los demás y creer en la tuya.",
+        autor: "The Boss",
+        texto: `
+            <p>Vivimos a menudo atrapados en la urgencia de moldear el mundo a nuestra imagen, creyendo que el valor de nuestra existencia depende de cuánto logremos imponer nuestra visión sobre el entorno.</p> 
+            
+            
+            <p>Sin embargo, <strong>la verdadera madurez comienza cuando comprendemos que nuestra tarea principal no es controlar el destino del mundo entero, sino actuar con integridad y entrega total</strong> en el espacio que nos corresponde habitar.</p>
+
+            <p>Hacer nuestro mejor esfuerzo antes de partir significa vivir sin reservas ni arrepentimientos. Es asumir la responsabilidad de nuestras propias decisiones, honrar cada compromiso con excelencia y dejar una huella limpia a través de nuestras acciones cotidianas, aceptando la realidad tal y como es sin perder la serenidad interior.</p>
+
+            <p>En ese camino, la convivencia genuina exige un equilibrio delicado: respetar la voluntad y el libre albedrío de los demás sin renunciar jamás a la convicción en nuestra propia voluntad. Aceptar que cada persona libra sus propias batallas y elige su propio rumbo nos libera del deseo de control y nos devuelve a lo único que realmente nos pertenece: nuestra coherencia personal.</p>
+
+            <p><strong>Cree con firmeza en tu propia voluntad, respeta el camino ajeno y entrega lo mejor de ti en cada paso. Al final, no seremos medidos por haber cambiado el mundo, sino por la lealtad con la que vivimos nuestros principios hasta el último día.</strong></p>
+        `
+    },
+
+    
+    {
         id: "con-cada-combate-mas-fuerte",
         fecha: "2026-11-16",
         titulo: "Lucha",

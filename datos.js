@@ -1,6 +1,26 @@
 const reflexiones = [
     
     {
+        id: "abrazar-la-espontaneidad",
+        fecha: "2026-11-18",
+        titulo: "Espontaneidad",
+        imagen: "https://i.postimg.cc/pX29n2d7/34-espontaneidad.jpg",
+        cita: "No puedes diseñar tu vida como un edificio. No funciona así. Simplemente tienes que vivirla, y ella misma se irá diseñando.",
+        autor: "Ted Mosby",
+        texto: `
+            <p>A menudo caemos en la trampa de querer trazar nuestra existencia con la exactitud de un plano arquitectónico: calculamos cada paso, definimos plazos estrictos y esperamos que cada etapa encaje sin margen de error.</p>
+            
+            <p>Aunque tener dirección es valioso, <strong>tratar la vida como una estructura rígida nos vuelve frágiles ante lo inesperado y nos roba la capacidad de sorprendernos</strong>.</p>
+
+            <p>Como reflexionaba Ted Mosby —un arquitecto acostumbrado a medir y proyectar cada detalle—, la vida no responde a cimientos inamovibles ni a cálculos lineales. Cuando nos aferramos obsesivamente a un guion predeterminado, corremos el riesgo de pasar por alto las oportunidades, los encuentros y los desvíos que guardan los aprendizajes más profundos.</p>
+
+            <p>Abrazar la espontaneidad no significa vivir sin propósito, sino soltar la necesidad de control absoluto. Es permitir que el presente respire, confiar en nuestra capacidad de adaptación y aceptar que los momentos más significativos suelen nacer precisamente fuera de lo planeado.</p>
+
+            <p><strong>Deja de exigirte tener cada respuesta resuelta antes de dar el paso. Vive con apertura, escucha lo que cada día propone y permite que la vida misma vaya revelando su propia arquitectura mientras la caminas.</strong></p>
+    `
+    },
+
+    {
         id: "hacer-nuestro-mejor-esfuerzo",
         fecha: "2026-11-17",
         titulo: "Voluntad",

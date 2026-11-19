@@ -1,4 +1,25 @@
-const reflexiones = [
+export const reflexiones = [
+    
+    {
+        id: "miedo-al-fracaso-y-al-exito",
+        fecha: "2026-11-19",
+        titulo: "Paralisis",
+        imagen: "https://i.postimg.cc/wM3Hk6s6/35-paralisis.jpg",
+        cita: "La razón por la que la gente no escribe es porque tiene miedo al fracaso... o miedo al éxito.",
+        autor: "William Forrester",
+        texto: `
+            <p>Muchas veces creemos que lo único que nos detiene para dar un paso importante es el temor a equivocarnos, a quedar expuestos o a que las cosas no salgan como esperábamos.</p> 
+            
+            <p>Sin embargo, existe una parálisis igual de silenciosa y poderosa: el miedo al éxito, a lo que implicará sostener el crecimiento, asumir nuevas responsabilidades y abandonar la comodidad de lo conocido.</p>
+
+            <p>Como advertía William Forrester, ambos temores nacen de la misma raíz: el deseo de protegernos de la vulnerabilidad. Cuando evitamos intentarlo, nos resguardamos tanto del dolor de la caída como de la exigencia de estar a la altura de nuestro propio potencial.</p>
+
+            <p>Superar ese bloqueo exige aceptar que el error es parte natural del aprendizaje y que el crecimiento siempre traerá consigo nuevos desafíos. Ni el fracaso define nuestro valor como personas, ni el éxito debe convertirse en una carga que nos impida avanzar con autenticidad.</p>
+
+            <p><strong>Atrévete a escribir tu propia historia sin pedir permiso al miedo. Da el primer paso con honestidad, permite que el proceso te transforme y confía en tu capacidad para sostener tanto los tropiezos como los logros del camino.</strong></p>
+        `
+    },
+
     
     {
         id: "abrazar-la-espontaneidad",
@@ -212,7 +233,7 @@ const reflexiones = [
     },
     {
         id: "renovacion",
-        fecha: "2026-11-0",
+        fecha: "2026-11-07",
         titulo: "Renovación",
         imagen: "https://i.postimg.cc/76LdbTyP/23-amanecer.jpg",
         cita: "No importa cuán oscura sea la noche, el día siempre vuelve a aparecer y nuestro viaje comienza una vez más.",

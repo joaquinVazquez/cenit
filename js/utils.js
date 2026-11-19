@@ -73,3 +73,15 @@ export function calcularTiempoLectura(textoPlano, palabrasPorMinuto = 200) {
     const totalPalabras = String(textoPlano || "").trim().split(/\s+/).filter(Boolean).length;
     return totalPalabras > 0 ? Math.ceil(totalPalabras / palabrasPorMinuto) : 0;
 }
+
+/**
+ * Devuelve una reflexión aleatoria de las publicadas (excluyendo la actual si hay opciones)
+ */
+export function obtenerReflexionAleatoria(lista, idExcluir = null) {
+    if (!Array.isArray(lista) || lista.length === 0) return null;
+    const candidatas = lista.length > 1 && idExcluir
+        ? lista.filter((item) => item.id !== idExcluir)
+        : lista;
+    const indice = Math.floor(Math.random() * candidatas.length);
+    return candidatas[indice];
+}

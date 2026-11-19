@@ -15,14 +15,19 @@
     </header>
 
     <div class="buscador-contenedor">
-        <div class="input-wrapper">
-            <input 
-                type="text" 
-                id="buscador" 
-                placeholder="Escribe una palabra que te inspire..." 
-                autocomplete="off"
-            >
-            <button type="button" id="btn-limpiar" class="btn-limpiar" aria-label="Limpiar búsqueda" hidden>×</button>
+        <div class="buscador-fila">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    id="buscador" 
+                    placeholder="Escribe una palabra que te inspire..." 
+                    autocomplete="off"
+                >
+                <button type="button" id="btn-limpiar" class="btn-limpiar" aria-label="Limpiar búsqueda" hidden>×</button>
+            </div>
+            <button type="button" id="btn-aleatoria" class="btn-aleatoria" title="Abrir una reflexión al azar">
+                ✦ Aleatoria
+            </button>
         </div>
         <p id="contador-resultados" class="contador-resultados" hidden></p>
     </div>

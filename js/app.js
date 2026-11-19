@@ -1,5 +1,5 @@
 import { reflexiones } from "../datos.js";
-import { obtenerFechaHoy, obtenerPublicadas, filtrarReflexiones } from "./utils.js";
+import { obtenerFechaHoy, obtenerPublicadas, filtrarReflexiones, obtenerReflexionAleatoria } from "./utils.js";
 import { renderizarDestacada, renderizarGrid, renderizarContador } from "./render.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const inputBuscador = document.getElementById("buscador");
     const btnLimpiar = document.getElementById("btn-limpiar");
     const contadorResultados = document.getElementById("contador-resultados");
+    const btnAleatoria = document.getElementById("btn-aleatoria");
 
     const fechaHoy = obtenerFechaHoy();
     const publicadas = obtenerPublicadas(reflexiones, fechaHoy);
@@ -64,5 +65,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (btnLimpiar) {
         btnLimpiar.addEventListener("click", resetearBusqueda);
+    }
+
+    if (btnAleatoria) {
+    btnAleatoria.addEventListener("click", () => {
+        const elegida = obtenerReflexionAleatoria(publicadas, publicadas[0]?.id);
+        if (elegida) {
+            window.location.href = `detalle.html?id=${elegida.id}`;
+        }
+    });
     }
 });

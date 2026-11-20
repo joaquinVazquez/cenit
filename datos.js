@@ -1,11 +1,30 @@
 export const reflexiones = [
     
     {
+        id: "esperanza-nos-hace-fuertes",
+        fecha: "2026-11-20",
+        titulo: "Esperanza",
+        imagen: "https://i.postimg.cc/HLgHMRDQ/36-esperanza.jpg",
+        cita: "La esperanza es lo que nos hace fuertes. Es la razón del porqué estamos aquí. Es por lo que peleamos. Cuando todo lo demás está perdido.",
+        autor: "Pandora",
+        texto: `
+            <p>Cuando las certezas se derrumban y los planes parecen no tener salida, lo único que sostiene el espíritu humano es la <strong>esperanza</strong>. No se trata de un optimismo ingenuo que ignora la dificultad, sino de una fuerza interior activa que nos impulsa a seguir avanzando incluso en medio de la oscuridad más profunda.</p>
+
+            <p>La verdadera fortaleza no nace únicamente cuando todo marcha a nuestro favor, sino en esos instantes críticos en los que parece que no queda nada por ganar y, aun así, elegimos mantenernos en pie. La esperanza se convierte entonces en el ancla que da sentido a cada esfuerzo, recordándonos por qué empezamos y qué valores estamos dispuestos a defender.</p>
+
+            <p>Peleamos no porque tengamos garantizada la victoria, sino porque renunciar significaría apagar lo más esencial de nuestra humanidad. Mientras exista una chispa de propósito, ningún escenario está definitivamente perdido.</p>
+
+            <p><strong>Sostén tu esperanza cuando el camino se vuelva incierto. Confía en tu capacidad de resistir, honra aquello por lo que luchas y recuerda que incluso en las horas más difíciles, tu determinación puede encender un nuevo comienzo.</strong></p>
+        `
+    },
+
+    
+    {
         id: "miedo-al-fracaso-y-al-exito",
         fecha: "2026-11-19",
         titulo: "Paralisis",
         imagen: "https://i.postimg.cc/wM3Hk6s6/35-paralisis.jpg",
-        cita: "La razón por la que la gente no escribe es porque tiene miedo al fracaso... o miedo al éxito.",
+        cita: "Alguien que conocí escribió que abandonamos nuestros sueños por miedo a poder fracasar, o peor aún por miedo a poder triunfar.",
         autor: "William Forrester",
         texto: `
             <p>Muchas veces creemos que lo único que nos detiene para dar un paso importante es el temor a equivocarnos, a quedar expuestos o a que las cosas no salgan como esperábamos.</p> 

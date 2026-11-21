@@ -3,7 +3,7 @@ export const reflexiones = [
     {
     id: "devolver-la-sonrisa-a-la-muerte",
     fecha: "2026-11-21",
-    titulo: "coraje",
+    titulo: "Coraje",
     imagen: "https://i.postimg.cc/BnzGzsgn/37-coraje.jpg",
     cita: "La muerte nos da una sonrisa. Lo que podemos hacer es devolvérsela.",
     autor: "Máximo Décimo Meridio",

@@ -1,5 +1,11 @@
 import { reflexiones } from "../datos.js";
-import { extraerResumen, calcularTiempoLectura, obtenerNavegacionReflexion } from "./utils.js";
+import {
+    extraerResumen,
+    calcularTiempoLectura,
+    obtenerNavegacionReflexion,
+    formatearCitaParaCompartir,
+    construirUrlWhatsApp
+} from "./utils.js";
 
 /**
  * Actualiza <title> y <meta name="description"> dinámicamente
@@ -79,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     inicializarBarraProgreso(progressIndicator);
+    inicializarCompartir(data);
 });
 
 function inicializarNavegacion(idActual) {
@@ -110,4 +117,85 @@ function inicializarNavegacion(idActual) {
             window.location.href = `detalle.html?id=${siguiente.id}`;
         }
     });
+}
+
+let toastTimeout = null;
+
+function mostrarToast(mensaje) {
+    const toast = document.getElementById("toast-notificacion");
+    if (!toast) return;
+
+    toast.textContent = mensaje;
+    toast.hidden = false;
+
+    requestAnimationFrame(() => {
+        toast.classList.add("visible");
+    });
+
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => {
+        toast.classList.remove("visible");
+        setTimeout(() => {
+            toast.hidden = true;
+        }, 250);
+    }, 2400);
+}
+
+async function copiarTextoAlPortapapeles(texto) {
+    if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(texto);
+        return true;
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.value = texto;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    const copiado = document.execCommand("copy");
+    document.body.removeChild(textarea);
+    return copiado;
+}
+
+function inicializarCompartir(data) {
+    const btnCopiar = document.getElementById("btn-copiar-cita");
+    const btnCompartir = document.getElementById("btn-compartir");
+    const urlActual = window.location.href;
+
+    if (btnCopiar) {
+        btnCopiar.addEventListener("click", async () => {
+            const textoCita = formatearCitaParaCompartir(data.cita, data.autor);
+            try {
+                await copiarTextoAlPortapapeles(textoCita);
+                mostrarToast("Cita copiada al portapapeles");
+            } catch {
+                mostrarToast("No se pudo copiar automáticamente");
+            }
+        });
+    }
+
+    if (btnCompartir) {
+        btnCompartir.addEventListener("click", async () => {
+            const textoCompartir = `${data.titulo} — ${formatearCitaParaCompartir(data.cita, data.autor)}`;
+
+            if (navigator.share) {
+                try {
+                    await navigator.share({
+                        title: `${data.titulo} | Cénit Mental`,
+                        text: textoCompartir,
+                        url: urlActual
+                    });
+                    return;
+                } catch (err) {
+                    if (err && err.name === "AbortError") return;
+                }
+            }
+
+            const whatsappUrl = construirUrlWhatsApp(data.titulo, urlActual);
+            window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+            mostrarToast("Abriendo WhatsApp para compartir");
+        });
+    }
 }

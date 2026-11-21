@@ -105,3 +105,22 @@ export function obtenerNavegacionReflexion(reflexiones, idActual, fechaHoy = obt
         anterior: indice < publicadas.length - 1 ? publicadas[indice + 1] : null
     };
 }
+
+/**
+ * Formatea la cita y el autor para copiar o compartir
+ */
+export function formatearCitaParaCompartir(cita, autor) {
+    const citaLimpia = (cita || "").trim();
+    const autorLimpio = (autor || "").trim();
+    return autorLimpio
+        ? `"${citaLimpia}" — ${autorLimpio} | Cénit Mental`
+        : `"${citaLimpia}" | Cénit Mental`;
+}
+
+/**
+ * Construye una URL de WhatsApp con el título y enlace de la reflexión
+ */
+export function construirUrlWhatsApp(titulo, url) {
+    const mensaje = `${titulo} — Cénit Mental\n${url}`;
+    return `https://wa.me/?text=${encodeURIComponent(mensaje)}`;
+}

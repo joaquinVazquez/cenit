@@ -1,6 +1,25 @@
 export const reflexiones = [
     
     {
+    id: "devolver-la-sonrisa-a-la-muerte",
+    fecha: "2026-11-21",
+    titulo: "coraje",
+    imagen: "https://i.postimg.cc/BnzGzsgn/37-coraje.jpg",
+    cita: "La muerte nos da una sonrisa. Lo que podemos hacer es devolvérsela.",
+    autor: "Máximo Décimo Meridio",
+    texto: `
+        <p>Enfrentarse a la muerte no significa rendirse, sino vivir cada día como si fuera el último, buscando lo que realmente importa.</p>
+
+        <p>Eso se traduce en no postergar nuestros sueños, relaciones o pasiones por miedo. En lugar de evitar lo que sabemos que es parte del ciclo natural, debemos aceptar nuestra mortalidad y encontrar en ella la motivación para hacer que cada momento cuente.</p>
+
+        <p>La muerte es inevitable para todos, pero nuestra actitud ante ella es lo que nos define. En lugar de temerla, podemos vivir de manera tan plena que al final podamos enfrentarla con total seguridad, dignidad, valentía y felicidad.</p>
+
+        <p><strong>Sin arrepentimientos, devolvamos esa sonrisa viviendo con coraje y disfrutando cada momento al máximo.</strong></p>
+    `
+},
+
+    
+    {
         id: "esperanza-nos-hace-fuertes",
         fecha: "2026-11-20",
         titulo: "Esperanza",

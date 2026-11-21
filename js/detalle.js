@@ -1,5 +1,5 @@
 import { reflexiones } from "../datos.js";
-import { extraerResumen, calcularTiempoLectura } from "./utils.js";
+import { extraerResumen, calcularTiempoLectura, obtenerNavegacionReflexion } from "./utils.js";
 
 /**
  * Actualiza <title> y <meta name="description"> dinámicamente
@@ -70,6 +70,9 @@ document.addEventListener("DOMContentLoaded", () => {
             readingTimeEl.textContent = `${minutos} min de lectura`;
             readingTimeEl.hidden = false;
         }
+
+        inicializarNavegacion(data.id);
+        
     } else {
         document.getElementById("title").textContent = "Reflexión no encontrada";
         document.getElementById("image").style.display = "none";
@@ -77,3 +80,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     inicializarBarraProgreso(progressIndicator);
 });
+
+function inicializarNavegacion(idActual) {
+    const { anterior, siguiente } = obtenerNavegacionReflexion(reflexiones, idActual);
+
+    const prevLink = document.getElementById("nav-prev");
+    const prevTitle = document.getElementById("nav-prev-title");
+    const nextLink = document.getElementById("nav-next");
+    const nextTitle = document.getElementById("nav-next-title");
+
+    if (anterior && prevLink && prevTitle) {
+        prevLink.href = `detalle.html?id=${anterior.id}`;
+        prevTitle.textContent = anterior.titulo;
+        prevLink.hidden = false;
+    }
+
+    if (siguiente && nextLink && nextTitle) {
+        nextLink.href = `detalle.html?id=${siguiente.id}`;
+        nextTitle.textContent = siguiente.titulo;
+        nextLink.hidden = false;
+    }
+
+    // Navegación rápida con flechas del teclado (← / →)
+    document.addEventListener("keydown", (e) => {
+        if (e.altKey || e.ctrlKey || e.metaKey) return;
+        if (e.key === "ArrowLeft" && anterior) {
+            window.location.href = `detalle.html?id=${anterior.id}`;
+        } else if (e.key === "ArrowRight" && siguiente) {
+            window.location.href = `detalle.html?id=${siguiente.id}`;
+        }
+    });
+}

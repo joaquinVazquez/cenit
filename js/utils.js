@@ -85,3 +85,23 @@ export function obtenerReflexionAleatoria(lista, idExcluir = null) {
     const indice = Math.floor(Math.random() * candidatas.length);
     return candidatas[indice];
 }
+
+/**
+ * Obtiene las reflexiones adyacentes (anterior y siguiente) dentro de la lista publicada.
+ * Como la lista está ordenada de más reciente (índice 0) a más antigua:
+ * - "siguiente" apunta hacia una fecha más reciente (índice - 1)
+ * - "anterior" apunta hacia una fecha más antigua (índice + 1)
+ */
+export function obtenerNavegacionReflexion(reflexiones, idActual, fechaHoy = obtenerFechaHoy()) {
+    const publicadas = obtenerPublicadas(reflexiones, fechaHoy);
+    const indice = publicadas.findIndex((item) => item.id === idActual);
+
+    if (indice === -1) {
+        return { anterior: null, siguiente: null };
+    }
+
+    return {
+        siguiente: indice > 0 ? publicadas[indice - 1] : null,
+        anterior: indice < publicadas.length - 1 ? publicadas[indice + 1] : null
+    };
+}

@@ -8,7 +8,9 @@ export const reflexiones = [
         cita: "La esperanza es lo que nos hace fuertes. Es la razón del porqué estamos aquí. Es por lo que peleamos. Cuando todo lo demás está perdido.",
         autor: "Pandora",
         texto: `
-            <p>Cuando las certezas se derrumban y los planes parecen no tener salida, lo único que sostiene el espíritu humano es la <strong>esperanza</strong>. No se trata de un optimismo ingenuo que ignora la dificultad, sino de una fuerza interior activa que nos impulsa a seguir avanzando incluso en medio de la oscuridad más profunda.</p>
+            <p>Cuando las certezas se derrumban y los planes parecen no tener salida, lo único que sostiene el espíritu humano es la <strong>esperanza</strong>. </p>
+            
+            <p>No se trata de un optimismo ingenuo que ignora la dificultad, sino de una fuerza interior activa que nos impulsa a seguir avanzando incluso en medio de la oscuridad más profunda.</p>
 
             <p>La verdadera fortaleza no nace únicamente cuando todo marcha a nuestro favor, sino en esos instantes críticos en los que parece que no queda nada por ganar y, aun así, elegimos mantenernos en pie. La esperanza se convierte entonces en el ancla que da sentido a cada esfuerzo, recordándonos por qué empezamos y qué valores estamos dispuestos a defender.</p>
 

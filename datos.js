@@ -1,6 +1,27 @@
 export const reflexiones = [
     
     {
+        id: "todos-los-hombres-mueren",
+        fecha: "2026-11-23",
+        titulo: "Vivir de verdad",
+        imagen: "https://i.postimg.cc/mDLPFxrf/39-vivir.webp",
+        cita: "Todos los hombres mueren, pero no todos han vivido.",
+        autor: "William Wallace",
+        texto: `
+            <p>La vida es un regalo precioso, pero vivirla plenamente es un acto consciente.</p> <p>No se trata solo de existir ni de pasar los días de forma mecánica, cumpliendo con nuestras obligaciones en piloto automático sin detenernos a pensar. Existir es apenas un hecho biológico; vivir de verdad exige abrazar cada experiencia con pasión, arriesgar, amar y perseguir lo que genuinamente nos enciende.</p>
+
+            <p>La sentencia de William Wallace nos confronta con una realidad ineludible: el final llega para todos, pero no todos llegan a él con la satisfacción de haber vivido con intensidad y de haber dejado una huella única en este mundo. Quien se conforma con durar por inercia renuncia silenciosamente a su propia historia.</p>
+
+            <p>Salir de esa rutina mecánica es complicado porque lo conocido ofrece una falsa sensación de seguridad. Sin embargo, romper la inercia no exige cambiarlo todo de golpe, sino empezar con pequeñas decisiones conscientes: salir de la zona de confort, explorar nuevas oportunidades y recuperar la intencionalidad en cada momento importante.</p>
+
+            <p>Puedes comenzar hoy mismo transformando lo cotidiano: en lugar de limitarte a cumplir en el trabajo, busca una manera de disfrutar y dar sentido a lo que haces; aprende algo nuevo que despierte tu curiosidad o conecta de forma más profunda y presente con las personas que te rodean.</p>
+
+            <p><strong>No todos los hombres mueren habiendo vivido con plenitud, pero cada día es una nueva oportunidad para darle significado a tu existencia. La pregunta queda abierta frente a ti: ¿vas a ser solo uno más que deja pasar los días, o te atreves a vivir de verdad?</strong></p>
+        `
+    },
+
+    
+    {
         id: "pasos",
         fecha: "2026-11-22",
         titulo: "Pasos",

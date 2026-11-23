@@ -40,21 +40,28 @@
                 </a>
             </nav>
 
-            <div class="share-actions" aria-label="Acciones para compartir">
-                <div class="share-actions" aria-label="Acciones para compartir">
+            <div class="share-actions" aria-label="Acciones para compartir y marcar lectura">
                 <button type="button" id="btn-copiar-cita" class="share-btn">
                     ❝ Copiar cita
                 </button>
                 <button type="button" id="btn-compartir" class="share-btn">
                     ✧ Compartir
                 </button>
-            </div>
+                <button
+                    id="btn-marcar-leida"
+                    type="button"
+                    class="btn-lectura"
+                    aria-pressed="false"
+                >
+                    Marcar como leída
+                </button>
             </div>
         </article>
     </main>
 
     <!-- 1. Importamos tu fuente única de datos -->
     <script type="module" src="js/detalle.js"></script>
+    <script type="module" src="./js/detalle.js"></script>
 
     <!-- 2. Buscamos la reflexión dinámicamente y activamos progreso + tiempo -->
     <script>

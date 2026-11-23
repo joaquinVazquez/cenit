@@ -1,16 +1,28 @@
-import { extraerResumen } from "./utils.js";
+import { extraerResumen, esReflexionLeida } from "./utils.js";
+
+function renderBadgeLeida(id) {
+    return esReflexionLeida(id)
+        ? `<span class="badge-leida" aria-label="Reflexión leída">Leída</span>`
+        : "";
+}
 
 /**
  * Genera el HTML de una tarjeta estándar del grid
  */
 export function crearTarjetaHTML(item) {
+    const leida = esReflexionLeida(item.id);
+    const badgeLeida = renderBadgeLeida(item.id);
+
     return `
-        <article class="card">
+        <article class="card ${leida ? "is-leida" : ""}">
             <h2>${item.titulo}</h2>
             <img src="${item.imagen}" alt="${item.titulo}" loading="lazy">
             <p>"${item.cita}"</p>
             ${item.autor ? `<p class="author">${item.autor}</p>` : ""}
-            <a href="detalle.html?id=${item.id}" class="btn-read-more">Leer más</a>
+            <div class="card-actions">
+                <a href="detalle.html?id=${item.id}" class="btn-read-more">Leer más</a>
+                ${badgeLeida}
+            </div>
         </article>
     `;
 }
@@ -24,6 +36,7 @@ export function renderizarDestacada(container, delDia, fechaHoy) {
     const esDeHoy = delDia.fecha === fechaHoy;
     const textoBadge = esDeHoy ? "🟢 PUBLICADO HOY" : "Reflexión del Día";
     const claseBadge = esDeHoy ? "badge is-today" : "badge";
+    const badgeLeida = renderBadgeLeida(delDia.id);
     const resumenAuto = extraerResumen(delDia.texto);
 
     container.style.display = "block";
@@ -37,7 +50,10 @@ export function renderizarDestacada(container, delDia, fechaHoy) {
                 <h2>${delDia.titulo}</h2>
                 <p class="featured-excerpt">"${delDia.cita}"</p>
                 <p class="featured-summary">${resumenAuto}</p>
-                <a href="detalle.html?id=${delDia.id}" class="btn-more">Leer reflexión completa</a>
+                <div class="featured-actions">
+                    <a href="detalle.html?id=${delDia.id}" class="btn-more">Leer reflexión completa</a>
+                    ${badgeLeida}
+                </div>
             </div>
         </article>
     `;

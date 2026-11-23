@@ -3,7 +3,7 @@ export const reflexiones = [
     {
         id: "todos-los-hombres-mueren",
         fecha: "2026-11-23",
-        titulo: "Vivir de verdad",
+        titulo: "Vivir",
         imagen: "https://i.postimg.cc/mDLPFxrf/39-vivir.webp",
         cita: "Todos los hombres mueren, pero no todos han vivido.",
         autor: "William Wallace",

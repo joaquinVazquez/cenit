@@ -13,7 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const fechaHoy = obtenerFechaHoy();
     const publicadas = obtenerPublicadas(reflexiones, fechaHoy);
 
-    if (!publicadas.length) return;
+    if (!publicadas.length) {
+        if (featuredContainer) featuredContainer.innerHTML = "";
+        if (gridContainer) {
+            gridContainer.innerHTML = `
+                <p style="grid-column: 1 / -1; text-align: center; padding: 2rem; opacity: 0.8;">
+                    No hay reflexiones publicadas disponibles todavía.
+                </p>
+            `;
+        }
+        return;
+    }
 
     function actualizarVista(lista, esBusqueda = false) {
         if (!esBusqueda) {
@@ -68,11 +78,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (btnAleatoria) {
-    btnAleatoria.addEventListener("click", () => {
-        const elegida = obtenerReflexionAleatoria(publicadas, publicadas[0]?.id);
-        if (elegida) {
-            window.location.href = `detalle.html?id=${elegida.id}`;
-        }
-    });
+        btnAleatoria.addEventListener("click", () => {
+            const elegida = obtenerReflexionAleatoria(publicadas, publicadas[0]?.id);
+            if (elegida) {
+                window.location.href = `detalle.html?id=${elegida.id}`;
+            }
+        });
     }
 });

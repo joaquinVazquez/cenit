@@ -1,6 +1,18 @@
 export const reflexiones = [
     
     {
+        id: "pasos",
+        fecha: "2026-11-22",
+        titulo: "Pasos",
+        imagen: "https://i.postimg.cc/wMVnh2mt/38-pasos.jpg",
+        cita: "El final no es más importante que cualquiera de los momentos que nos llevaron hasta él.",
+        autor: "Dra. Rosalene (To the Moon)",
+        texto: "<p>La vida es un camino lleno de momentos que nos transforman, nos enseñan y nos desafían.</p> <Cada>Vivir con la mente enfocada únicamente en la meta final nos hace perder la riqueza de lo que ocurre durante el proceso.Cada paso, cada aprendizaje y cada obstáculo superado tiene el mismo valor que el destino mismo.</p><p>El final no es simplemente un punto de llegada, sino la suma de todos los pequeños instantes que construimos para alcanzarlo. Cuando aprendemos a reconocer y disfrutar el presente, descubrimos una verdadera abundancia, independientemente del resultado.</p> <p>En cambio, obsesionarnos solo con lo que falta por venir abre la puerta a la frustración, la ansiedad y la desesperanza. La clave para salir de ese estancamiento está en enfocar nuestra energía en las pequeñas victorias diarias: transformar el presente, paso a paso, es lo que nos devuelve el control y sostiene nuestro crecimiento personal.</p>"
+    },
+
+
+    
+    {
     id: "devolver-la-sonrisa-a-la-muerte",
     fecha: "2026-11-21",
     titulo: "Coraje",

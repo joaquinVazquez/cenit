@@ -4,7 +4,9 @@ import {
     calcularTiempoLectura,
     obtenerNavegacionReflexion,
     formatearCitaParaCompartir,
-    construirUrlWhatsApp
+    construirUrlWhatsApp,
+    esReflexionLeida,
+    alternarReflexionLeida
 } from "./utils.js";
 
 /**
@@ -46,6 +48,29 @@ function inicializarBarraProgreso(progressIndicator) {
     }, { passive: true });
 }
 
+function sincronizarBotonLectura(btn, leida) {
+    btn.setAttribute("aria-pressed", String(leida));
+    btn.classList.toggle("is-leida", leida);
+    btn.textContent = leida ? "Leída" : "Marcar como leída";
+}
+
+function inicializarMarcadorLectura(reflexionId) {
+    const btn = document.getElementById("btn-marcar-leida");
+    if (!btn || !reflexionId) return;
+
+    sincronizarBotonLectura(btn, esReflexionLeida(reflexionId));
+
+    btn.addEventListener("click", () => {
+        const nuevoEstado = alternarReflexionLeida(reflexionId);
+        sincronizarBotonLectura(btn, nuevoEstado);
+        mostrarToast(
+            nuevoEstado
+                ? "Reflexión marcada como leída"
+                : "Marcador de lectura retirado"
+        );
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const params = new URLSearchParams(window.location.search);
     const id = params.get("id");
@@ -77,11 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
             readingTimeEl.hidden = false;
         }
 
+        inicializarMarcadorLectura(data.id);
         inicializarNavegacion(data.id);
-        
     } else {
         document.getElementById("title").textContent = "Reflexión no encontrada";
         document.getElementById("image").style.display = "none";
+
+        const btnLectura = document.getElementById("btn-marcar-leida");
+        if (btnLectura) btnLectura.hidden = true;
     }
 
     inicializarBarraProgreso(progressIndicator);

@@ -1,4 +1,5 @@
 import { extraerResumen } from "./utils.js";
+import { esReflexionLeida } from "./utils.js";
 
 /**
  * Genera el HTML de una tarjeta estándar del grid
@@ -75,4 +76,10 @@ export function renderizarContador(contadorEl, total, visible) {
     contadorEl.hidden = false;
     const etiqueta = total === 1 ? "reflexión encontrada" : "reflexiones encontradas";
     contadorEl.innerHTML = `Mostrando <span>${total}</span> ${etiqueta}`;
+}
+
+function renderBadgeLeida(id) {
+  return esReflexionLeida(id)
+    ? `<span class="badge-leida" aria-label="Reflexión leída">Leída</span>`
+    : "";
 }

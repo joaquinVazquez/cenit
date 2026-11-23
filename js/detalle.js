@@ -9,6 +9,87 @@ import {
     alternarReflexionLeida
 } from "./utils.js";
 
+const STORAGE_KEY_TAMANO_FUENTE = "cenit_tamano_fuente_v1";
+const ESCALAS_FUENTE = [0.9, 1, 1.1, 1.2, 1.3];
+const ESCALA_POR_DEFECTO = 1;
+
+function obtenerEscalaGuardada() {
+    try {
+        const raw = localStorage.getItem(STORAGE_KEY_TAMANO_FUENTE);
+        const valor = Number.parseFloat(raw);
+        return ESCALAS_FUENTE.includes(valor) ? valor : ESCALA_POR_DEFECTO;
+    } catch {
+        return ESCALA_POR_DEFECTO;
+    }
+}
+
+function guardarEscalaFuente(escala) {
+    try {
+        localStorage.setItem(STORAGE_KEY_TAMANO_FUENTE, String(escala));
+    } catch (error) {
+        console.warn("No se pudo guardar el tamaño de fuente:", error);
+    }
+}
+
+function aplicarEscalaFuente(fullTextEl, escala) {
+    if (!fullTextEl) return;
+
+    const tamanoBaseRem = 1.05;
+    fullTextEl.style.fontSize = `${(tamanoBaseRem * escala).toFixed(3)}rem`;
+
+    fullTextEl.querySelectorAll("p").forEach((parrafo) => {
+        parrafo.style.fontSize = "inherit";
+    });
+}
+
+function inicializarTamanoFuente(fullTextEl) {
+    const btnDecrease = document.getElementById("btn-font-decrease");
+    const btnIncrease = document.getElementById("btn-font-increase");
+    const btnReset = document.getElementById("btn-font-reset");
+
+    if (!fullTextEl || !btnDecrease || !btnIncrease || !btnReset) return;
+
+    let escalaActual = obtenerEscalaGuardada();
+
+    function actualizarControles() {
+        const indice = ESCALAS_FUENTE.indexOf(escalaActual);
+        const porcentaje = Math.round(escalaActual * 100);
+
+        aplicarEscalaFuente(fullTextEl, escalaActual);
+
+        btnReset.textContent = `${porcentaje}%`;
+        btnDecrease.disabled = indice <= 0;
+        btnIncrease.disabled = indice >= ESCALAS_FUENTE.length - 1;
+    }
+
+    actualizarControles();
+
+    btnDecrease.addEventListener("click", () => {
+        const indice = ESCALAS_FUENTE.indexOf(escalaActual);
+        if (indice > 0) {
+            escalaActual = ESCALAS_FUENTE[indice - 1];
+            guardarEscalaFuente(escalaActual);
+            actualizarControles();
+        }
+    });
+
+    btnIncrease.addEventListener("click", () => {
+        const indice = ESCALAS_FUENTE.indexOf(escalaActual);
+        if (indice < ESCALAS_FUENTE.length - 1) {
+            escalaActual = ESCALAS_FUENTE[indice + 1];
+            guardarEscalaFuente(escalaActual);
+            actualizarControles();
+        }
+    });
+
+    btnReset.addEventListener("click", () => {
+        escalaActual = ESCALA_POR_DEFECTO;
+        guardarEscalaFuente(escalaActual);
+        actualizarControles();
+        mostrarToast("Tamaño de texto restablecido (100%)");
+    });
+}
+
 /**
  * Actualiza <title> y <meta name="description"> dinámicamente
  */
@@ -102,6 +183,7 @@ document.addEventListener("DOMContentLoaded", () => {
             readingTimeEl.hidden = false;
         }
 
+        inicializarTamanoFuente(fullTextEl);
         inicializarMarcadorLectura(data.id);
         inicializarNavegacion(data.id);
     } else {

@@ -688,6 +688,73 @@ footer {
     transform: translateY(0);
 }
 
+.reader-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 1.15rem;
+    background-color: rgba(17, 24, 39, 0.75);
+    border: 1px solid #263042;
+    border-radius: 10px;
+}
+
+.reader-toolbar-label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    letter-spacing: 0.02em;
+}
+
+.font-size-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.font-size-btn,
+.font-size-indicator {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 1.8rem;
+    padding: 0 0.45rem;
+    font-family: inherit;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.font-size-btn:hover:not(:disabled),
+.font-size-indicator:hover {
+    color: #34d399;
+    background-color: rgba(16, 185, 129, 0.12);
+    border-color: rgba(16, 185, 129, 0.45);
+}
+
+.font-size-indicator {
+    min-width: 3rem;
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.font-size-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+@media (max-width: 520px) {
+    .reader-toolbar {
+        flex-wrap: wrap;
+    }
+}
+
 /* ==========================================
    10. RESPONSIVE
    ========================================== */

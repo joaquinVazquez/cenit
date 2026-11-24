@@ -166,3 +166,60 @@ export function alternarReflexionLeida(id) {
   guardarReflexionesLeidas(actualizadas);
   return !existe;
 }
+
+export const RUTA_IMAGEN_RESPALDO = "assets/img/fallback.jpg";
+
+export function escaparAtributoHTML(valor = "") {
+    return String(valor)
+        .replace(/&/g, "&amp;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+}
+
+/**
+ * Genera los atributos seguros para una etiqueta <img> en plantillas HTML
+ * con respaldo local y prevención de bucle infinito en onerror.
+ */
+export function construirAtributosImagen(src, alt = "", { lazy = true, fallback = RUTA_IMAGEN_RESPALDO } = {}) {
+    const origenLimpio = (typeof src === "string" && src.trim()) ? src.trim() : fallback;
+    const respaldoLimpio = (typeof fallback === "string" && fallback.trim()) ? fallback.trim() : RUTA_IMAGEN_RESPALDO;
+    const altEscapado = escaparAtributoHTML(alt);
+    const srcEscapado = escaparAtributoHTML(origenLimpio);
+    const fallbackEscapado = escaparAtributoHTML(respaldoLimpio);
+    const attrLazy = lazy ? ' loading="lazy"' : "";
+
+    const handlerError = `this.onerror=null;if(this.dataset.fallbackApplied!=='1'){this.dataset.fallbackApplied='1';this.src='${fallbackEscapado}';}`;
+
+    return `src="${srcEscapado}" alt="${altEscapado}"${attrLazy} decoding="async" data-fallback-applied="0" onerror="${handlerError}"`;
+}
+
+/**
+ * Configura de forma segura un elemento <img> existente en el DOM (ej. detalle.html).
+ */
+export function aplicarImagenConRespaldo(imgEl, src, alt = "", { lazy = false, fallback = RUTA_IMAGEN_RESPALDO } = {}) {
+    if (!imgEl) return;
+
+    const origenLimpio = (typeof src === "string" && src.trim()) ? src.trim() : fallback;
+    const respaldoLimpio = (typeof fallback === "string" && fallback.trim()) ? fallback.trim() : RUTA_IMAGEN_RESPALDO;
+
+    imgEl.alt = alt;
+    imgEl.decoding = "async";
+    if (lazy) {
+        imgEl.loading = "lazy";
+    } else {
+        imgEl.removeAttribute("loading");
+    }
+
+    imgEl.dataset.fallbackApplied = "0";
+
+    const manejarError = () => {
+        if (imgEl.dataset.fallbackApplied === "1") return;
+        imgEl.dataset.fallbackApplied = "1";
+        imgEl.src = respaldoLimpio;
+    };
+
+    imgEl.addEventListener("error", manejarError, { once: true });
+    imgEl.src = origenLimpio;
+}

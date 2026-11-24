@@ -6,7 +6,8 @@ import {
     formatearCitaParaCompartir,
     construirUrlWhatsApp,
     esReflexionLeida,
-    alternarReflexionLeida
+    alternarReflexionLeida,
+    aplicarImagenConRespaldo
 } from "./utils.js";
 
 const STORAGE_KEY_TAMANO_FUENTE = "cenit_tamano_fuente_v1";
@@ -170,8 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("title").textContent = data.titulo;
 
         const imgEl = document.getElementById("image");
-        imgEl.src = data.imagen;
-        imgEl.alt = data.titulo;
+        aplicarImagenConRespaldo(imgEl, data.imagen, data.titulo, { lazy: false });
 
         document.getElementById("quote").textContent = `"${data.cita}"`;
         document.getElementById("author").textContent = data.autor || "";
@@ -188,7 +188,8 @@ document.addEventListener("DOMContentLoaded", () => {
         inicializarNavegacion(data.id);
     } else {
         document.getElementById("title").textContent = "Reflexión no encontrada";
-        document.getElementById("image").style.display = "none";
+        const imgEl = document.getElementById("image");
+        if (imgEl) imgEl.style.display = "none";
 
         const btnLectura = document.getElementById("btn-marcar-leida");
         if (btnLectura) btnLectura.hidden = true;
@@ -207,13 +208,13 @@ function inicializarNavegacion(idActual) {
     const nextTitle = document.getElementById("nav-next-title");
 
     if (anterior && prevLink && prevTitle) {
-        prevLink.href = `detalle.html?id=${anterior.id}`;
+        prevLink.href = `detalle.html?id=${encodeURIComponent(anterior.id)}`;
         prevTitle.textContent = anterior.titulo;
         prevLink.hidden = false;
     }
 
     if (siguiente && nextLink && nextTitle) {
-        nextLink.href = `detalle.html?id=${siguiente.id}`;
+        nextLink.href = `detalle.html?id=${encodeURIComponent(siguiente.id)}`;
         nextTitle.textContent = siguiente.titulo;
         nextLink.hidden = false;
     }
@@ -222,9 +223,9 @@ function inicializarNavegacion(idActual) {
     document.addEventListener("keydown", (e) => {
         if (e.altKey || e.ctrlKey || e.metaKey) return;
         if (e.key === "ArrowLeft" && anterior) {
-            window.location.href = `detalle.html?id=${anterior.id}`;
+            window.location.href = `detalle.html?id=${encodeURIComponent(anterior.id)}`;
         } else if (e.key === "ArrowRight" && siguiente) {
-            window.location.href = `detalle.html?id=${siguiente.id}`;
+            window.location.href = `detalle.html?id=${encodeURIComponent(siguiente.id)}`;
         }
     });
 }
@@ -270,6 +271,8 @@ async function copiarTextoAlPortapapeles(texto) {
 }
 
 function inicializarCompartir(data) {
+    if (!data) return;
+
     const btnCopiar = document.getElementById("btn-copiar-cita");
     const btnCompartir = document.getElementById("btn-compartir");
     const urlActual = window.location.href;

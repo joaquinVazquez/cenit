@@ -1,6 +1,32 @@
 export const reflexiones = [
     
     {
+        id: "ajenos",
+        fecha: "2026-11-24",
+        titulo: "Ajenos",
+        imagen: "https://i.postimg.cc/sgCLsCz4/40-ajenos.jpg",
+        cita: "No peleo para tener una ofrenda en mi tumba, sino por el desayuno de mañana.",
+        autor: "Sakata Gintoki",
+        texto: `
+            <p>Hay una diferencia abismal entre luchar por el aplauso póstumo y luchar por la vida que ocurre aquí y ahora.</p> <p>A menudo nos perdemos persiguiendo reconocimientos lejanos, prestigio vacío o la validación de quienes ni siquiera caminarán a nuestro lado, olvidando que la verdadera batalla se libra en lo inmediato: en el sustento, la dignidad y la tranquilidad del día siguiente.</p>
+
+
+            <p>En lugar de perseguir una gloria eterna o monumentos cuando ya no estemos, pon los pies sobre la tierra: las ofrendas tardías no alimentan el presente ni sostienen a quienes dependen de nuestro esfuerzo diario. Pelear por el desayuno de mañana significa asumir una responsabilidad honesta sobre lo tangible, enfocando nuestra energía en construir bienestar real hoy mismo.</p>
+
+            <p>Las glorias tardías y los homenajes cuando ya no estamos no alimentan el presente ni sostienen a quienes dependen de nuestro esfuerzo diario.</p>
+
+
+            <p>Anclarse en la realidad cotidiana exige calma frente al ruido externo y disciplina práctica en lo que sí controlamos. No hace falta dramatizar cada paso ni buscar aprobación constante; basta con sostener el ritmo, cumplir con lo esencial y cuidar nuestro entorno inmediato con serenidad y firmeza.</p>
+
+
+            <p>Esta filosofía no renuncia a los grandes propósitos, sino que entiende que todo proyecto sólido se edifica sobre el trabajo diario y la paz mental. Cada jornada de esfuerzo honesto, cada decisión práctica y cada compromiso cumplido valen infinitamente más que cualquier promesa de gloria futura sin sustento en el presente.</p>
+
+            <p><strong>Deja de gastar tu fuerza buscando monumentos para el recuerdo; concéntrate en ganar la batalla de hoy para asegurar la mesa de mañana. Ahí es donde se demuestra la verdadera grandeza.</strong></p>
+        `
+    },
+
+
+    {
         id: "todos-los-hombres-mueren",
         fecha: "2026-11-23",
         titulo: "Vivir",

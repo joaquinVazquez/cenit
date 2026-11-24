@@ -1,6 +1,37 @@
-images/
+# Dependencias y compilaciones (por si en algún momento agregas herramientas)
+node_modules/
+dist/
+build/
 
-*.jfif
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores y entornos locales
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Variables de entorno y secretos (nunca subir claves o tokens)
+.env
+.env.*
+!.env.example
+
+# Archivos temporales o de respaldo local
+*.log
+*.tmp
+*.bak
+*.orig
+
+# Imágenes en general (excepto las de assets/img/ para Netlify)
 *.jpg
-*.png
 *.jpeg
+*.png
+*.webp
+!assets/img/
+!assets/img/*.jpg
+!assets/img/*.jpeg
+!assets/img/*.png
+!assets/img/*.webp

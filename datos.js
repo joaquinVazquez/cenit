@@ -1,6 +1,25 @@
 export const reflexiones = [
     
     {
+    id: "perpesctiva",
+    fecha: "2026-11-25",
+    titulo: "Perspectiva",
+    imagen: "https://i.postimg.cc/RVBkQXL5/41-perpectiva.jpg",
+    cita: "Cuando un hombre se enfrenta a la muerte, lo imposible no es más que un pequeño obstáculo.",
+    autor: "El Príncipe",
+    texto: `
+        <p>Lo que solemos llamar imposible rara vez es un muro físico; casi siempre es una frontera mental construida desde la comodidad y el miedo al fracaso.</p> <p>Cuando contamos con margen para dudar, negociar o retroceder, cualquier obstáculo complejo adquiere proporciones gigantescas y paraliza nuestra iniciativa antes siquiera de intentarlo.</p>
+
+        <p>La sentencia de El Príncipe expone una verdad cruda sobre la naturaleza humana: ante una situación límite donde no existe plan de escape ni espacio para la vacilación, la mente elimina todo ruido superfluo. El enfoque extremo concentra cada recurso cognitivo, emocional y físico en un único punto, reduciendo barreras que antes parecían infranqueables a simples pasos tácticos que deben resolverse aquí y ahora.</p>
+
+        <p>No hace falta esperar una crisis extrema para activar esa claridad mental; podemos entrenarla de forma deliberada mediante la disciplina y la determinación absoluta. Cuando asumimos un compromiso sin puertas traseras, dejamos de gastar energía en excusas o escenarios hipotéticos y comenzamos a ejecutar con precisión quirúrgica lo que exige el momento.</p>
+
+        <p><strong>Cuando eliminas la opción de rendirte y enfocas toda tu voluntad en el presente, aquello que llamabas imposible pierde su poder y se convierte apenas en un escalón más en tu camino.</strong></p>
+    `
+},
+
+    
+    {
         id: "ajenos",
         fecha: "2026-11-24",
         titulo: "Ajenos",

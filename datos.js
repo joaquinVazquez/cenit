@@ -1,6 +1,25 @@
 export const reflexiones = [
     
     {
+        id: "redención",
+        fecha: "2026-11-26",
+        titulo: "redencion",
+        imagen: "https://i.postimg.cc/fbL6HVvW/42-redencion.jpg",
+        cita: "Si no tienes recuerdos felices, nunca es tarde para empezar a construirlo.",
+        autor: "Dr. Tenma",
+        texto: `
+            <p>A menudo cargamos con la idea de que el pasado define por completo nuestro bienestar emocional, creyendo que la falta de recuerdos luminosos en etapas anteriores nos condena a una carencia permanente.</p> <p>Esa mirada hacia atrás nos paraliza y nos hace olvidar que la historia personal no es un libro cerrado, sino una obra en constante escritura.</p>
+
+            <p>No podemos reescribir lo que faltó ayer, pero tenemos plena autoridad sobre lo que sembramos hoy. Cada gesto honesto, cada instante de presencia real y cada vínculo cuidado con intención se convierte en la materia prima de una memoria futura que sí valga la pena habitar.</p>
+
+            <p>Construir recuerdos felices no exige hazañas extraordinarias ni escenarios perfectos; nace de la decisión deliberada de estar presentes en lo cotidiano, de valorar los pequeños logros y de compartir tiempo genuino con quienes caminan a nuestro lado. Cuando dejamos de esperar condiciones ideales y actuamos con calidez en el presente, transformamos días ordinarios en refugios duraderos.</p>
+
+            <p><strong>El pasado no tiene la última palabra sobre tu historia; cada día que vives con presencia, gratitud y propósito es una oportunidad intacta para crear los recuerdos que tu futuro agradecerá.</strong></p>
+    `
+    },
+
+    
+    {
     id: "perpesctiva",
     fecha: "2026-11-25",
     titulo: "Perspectiva",
